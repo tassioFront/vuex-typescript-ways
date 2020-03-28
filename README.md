@@ -1,34 +1,37 @@
-# hello
 
-## Project setup
-```
-npm install
-```
+# Vuex-typescript
+Diference between Normal Vuex Use vs Vuex-class lib.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Summary
+- [Description](#description)
+- [Requirements](#pre-requisitos)
+- [Config](#pre-requisitos)
+- [Stack](#stack)
+- [Conclusion](#conclusion)
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Description
+  Checking best way to use vuex in Vue-TypeScript projects. it considering:
+  [clean-code], [legibility] and [performance]. 
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+## Requirements
+  - [Node.js](https://nodejs.org/en/)
+  - [NPM](https://www.npmjs.com/)
+  - run: npm i && npm run serve
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Enviorements
+    http://localhost:8080 to see project running
+    http://127.0.0.1:8888/ to see Bundles (filter by js/Normal.js and js/Class.js)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Stack
+- [Vue.js](https://vuejs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vuex](https://vuex.vuejs.org/) 
+- [WebpackBundleAnalyzer](https://www.npmjs.com/package/vue-cli-plugin-webpack-bundle-analyzer) - to check bundles size
+
+## Conclusion
+clean code: Notably, vuex-class has a code cleaner than normal import.
+
+legibility: Draw here. Its depends on your Developer background.
+
+Performance: Its a harder to meansure the real final impact here, cause depends on your way to build aplication and of context. But, as you can see on webpack-analyzer, vuex-class has maker smallers bundles.
