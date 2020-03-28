@@ -4,15 +4,15 @@ Diference between Normal Vuex Use vs Vuex-class lib.
 
 ## Summary
 - [Description](#description)
-- [Requirements](#pre-requisitos)
-- [Config](#pre-requisitos)
+- [Requirements](#requirements)
+- [Enviorements](#enviorements)
 - [Stack](#stack)
 - [Conclusion](#conclusion)
 
 
 ## Description
-  Checking best way to use vuex in Vue-TypeScript projects. it considering:
-  [clean-code], [legibility] and [performance]. 
+  Checking best way to use Vuex in Vue-TypeScript projects. it considering:
+  clean-code, legibility and performance. 
 
 ## Requirements
   - [Node.js](https://nodejs.org/en/)
