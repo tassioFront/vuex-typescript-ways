@@ -10,7 +10,7 @@ Diference between Normal Vuex import vs Vuex-class lib.
 - [Conclusion](#conclusion)
 
 ## Description
-  Checking best way to use Vuex in Vue-TypeScript projects. it considering:
+  Checking best way to import Vuex modules on components in Vue-TypeScript projects. it considering:
   clean-code, legibility and performance. 
 
 ## Requirements
