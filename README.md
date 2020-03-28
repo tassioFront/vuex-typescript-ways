@@ -35,7 +35,7 @@ Legibility: Draw here. Its depends on your Developer background.
 
 Performance: Its hard to meansure the real final impact here, cause depends on your way to build aplication and of context. But, as you can see on webpack-analyzer, vuex-class has maker smallers bundle than normal import.
 
-## Webpack Analyzer results
+### Webpack Analyzer results
 ![Screenshot](/public/img/printscreen-webpack-analyzer-result.png)
 
 
