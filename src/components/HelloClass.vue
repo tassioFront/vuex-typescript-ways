@@ -2,7 +2,7 @@
   <div class="container">
     <h3>vuex-class import</h3>
     <div v-if="profile.user">
-      <p>{{ fullName }}</p>
+      <p>{{ userInfo }}</p>
     </div>
     <div v-else>Oops an error occured</div>
   </div>
@@ -19,13 +19,13 @@ const namespace = 'profile'
 export default class Class extends Vue {
         @State('profile') profile!: ProfileState;
         @Action('fetchData', { namespace }) fetchData!: Function;
-        @Getter('userInfo', { namespace }) fullName!: string;
+        @Getter('userInfo', { namespace }) userInfo!: string;
 
         mounted () {
           this.fetchData()
         }
 
-        get email () {
+        get login () {
           const user = this.profile && this.profile.user
           return (user && user.login) || ''
         }
