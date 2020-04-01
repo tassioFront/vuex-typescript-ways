@@ -6,7 +6,11 @@ import { ProfileState } from './types'
 import { RootState } from '../types'
 
 export const state: ProfileState = {
-  user: undefined
+  user: {
+    login: '',
+    name: '',
+    company: ''
+  }
 }
 
 const namespaced = true

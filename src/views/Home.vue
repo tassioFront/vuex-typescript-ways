@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloClass />
-    <!-- <HelloNormal /> -->
+    <HelloNormal />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 
 export default {
   components: {
-    // HelloNormal: () => import(/* webpackChunkName: "Normal" */ '@/components/HelloNormal.vue'),
+    HelloNormal: () => import(/* webpackChunkName: "Normal" */ '@/components/HelloNormal.vue'),
     HelloClass: () => import(/* webpackChunkName: "Class" */ '@/components/HelloClass.vue')
   }
 }

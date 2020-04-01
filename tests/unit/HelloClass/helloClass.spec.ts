@@ -1,31 +1,34 @@
 import Vuex from 'vuex'
 import { getters } from '@/store/profile/getters'
-import { RootState } from '@/store/types'
+import { ProfileState } from '@/store/profile/types'
+
 import { shallowMount, createLocalVue, Wrapper } from '@vue/test-utils'
 import HelloClass from '@/components/HelloClass.vue'
 import { gitUserMock } from './mock'
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
-const state = gitUserMock
+const state: ProfileState = {
+  user: gitUserMock
+}
 
 const actions = {
-    fetchData: jest.fn()
-};
+  fetchData: jest.fn()
+}
 
 const store = new Vuex.Store({
-    modules: {
-        profile: {
-            state,
-            namespaced: true,
-            actions,
-            getters
-        }
+  modules: {
+    profile: {
+      namespaced: true,
+      state,
+      getters,
+      actions
     }
-});
+  }
+})
 
-let wrapper: Wrapper<any>;
+let wrapper: Wrapper<Vue>
 
 beforeEach(() => {
   wrapper = shallowMount(HelloClass, {
@@ -34,17 +37,15 @@ beforeEach(() => {
   })
 })
 
-describe('HelloWorld.vue', () => {
+describe('HelloClass component', () => {
   it('renders components', () => {
     expect(wrapper.isVisible())
   })
   it('call fetchData', () => {
-    expect(actions.fetchData).toHaveBeenCalled();
+    expect(actions.fetchData).toHaveBeenCalled()
   })
 
   it('getter userInfor is computing', () => {
-    expect(getters.userInfor(state, [], RootState, [] ));
+    expect(getters.userInfo(state, [], { version: '1' }, [])).toEqual(`${state.user.name} from ${state.user.company}`)
   })
-
-
 })

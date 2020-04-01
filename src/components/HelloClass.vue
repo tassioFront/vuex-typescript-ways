@@ -24,10 +24,5 @@ export default class Class extends Vue {
         mounted () {
           this.fetchData()
         }
-
-        get login () {
-          const user = this.profile && this.profile.user
-          return (user && user.login) || ''
-        }
 }
 </script>

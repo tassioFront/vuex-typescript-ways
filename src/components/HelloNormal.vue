@@ -13,6 +13,7 @@ import Vue from 'vue'
 import { createNamespacedHelpers } from 'vuex'
 import Component from 'vue-class-component'
 import { ProfileState } from '@/store/profile/types'
+import { RootState } from '@/store/types'
 const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
   'profile/'
 )
@@ -39,11 +40,6 @@ export default class Normal extends Vue {
 
   mounted () {
     this.fetchData()
-  }
-
-  get login () {
-    const user = this.profile && this.profile.user
-    return (user && user.login) || ''
   }
 }
 </script>
