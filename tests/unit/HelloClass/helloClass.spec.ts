@@ -46,6 +46,6 @@ describe('HelloClass component', () => {
   })
 
   it('getter userInfor is computing', () => {
-    expect(getters.userInfo(state, [], { version: '1' }, [])).toEqual(`${state.user.name} from ${state.user.company}`)
+    expect(getters.userInfo(state, [], { version: '1' }, [])).toBe(`${state.user.name} from ${state.user.company}`)
   })
 })
