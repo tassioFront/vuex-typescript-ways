@@ -10,10 +10,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { createNamespacedHelpers } from 'vuex'
+import { createNamespacedHelpers, ActionMethod } from 'vuex'
 import Component from 'vue-class-component'
 import { ProfileState } from '@/store/profile/types'
-import { RootState } from '@/store/types'
 const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
   'profile/'
 )
@@ -21,7 +20,7 @@ const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
 @Component({
   computed: {
     ...mapState({
-      profile: (state: any) => state
+      profile: (state) => state
     }),
     ...mapGetters({
       userInfo: 'userInfo'
@@ -36,7 +35,7 @@ const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
 export default class Normal extends Vue {
   public userInfo!: ProfileState;
   public profile!: ProfileState;
-  public fetchData!: Function;
+  public fetchData!: ActionMethod;
 
   mounted () {
     this.fetchData()

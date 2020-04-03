@@ -1,4 +1,4 @@
-interface GitUser {
+export default interface GitUser {
     login: string;
     name: string;
     company: string;
