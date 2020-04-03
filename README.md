@@ -1,6 +1,7 @@
 
-# Vuex-typescript
+# Vuex-typescript-Jest
 Diference between Normal Vuex import vs Vuex-class lib.
+I have maked some examples with Jest, Vuex and TypeScript.
 
 ## Summary
 - [Description](#description)
@@ -12,6 +13,8 @@ Diference between Normal Vuex import vs Vuex-class lib.
 ## Description
   Checking best way to import Vuex modules on components in Vue-TypeScript projects. it considering:
   clean-code, legibility and performance. 
+
+  In this test example, I have used method from vuex used on components.
 
 ## Requirements
   - [Node.js](https://nodejs.org/en/)
