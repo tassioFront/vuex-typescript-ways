@@ -1,5 +1,7 @@
 {
-  "name": "hello",
+  "name": "vuex-typescript-jest",
+  "author": "Tássio Jordão",
+  "description": "Diference between Normal Vuex import vs Vuex-class lib. I have maked some examples with Jest, Vuex and TypeScript.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
