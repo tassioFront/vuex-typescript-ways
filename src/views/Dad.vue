@@ -23,15 +23,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import Vue from "vue";
+import Component from "vue-class-component";
 
-import PassingDataByComponents from '@/components/PassingDataByComponents.vue'
-import ComputedLifeCycles from '@/components/ComputedLifeCycles.vue'
+import PassingDataByComponents from "@/components/PassingDataByComponents.vue";
+import ComputedLifeCycles from "@/components/ComputedLifeCycles.vue";
 
-import axios from 'axios'
-import GitUser from '@/models/IGitUser'
-import { gitUserMock } from '@/mocks/gitUser'
+import axios from "axios";
+import GitUser from "@/models/IGitUser";
+import { gitUserMock } from "@/mocks/gitUser";
 
 @Component({
   components: {
@@ -41,45 +41,39 @@ import { gitUserMock } from '@/mocks/gitUser'
 })
 export default class Dad extends Vue {
   // data
-  private title = 'GitHub User';
-  private userLogin = '';
+  private title = "GitHub User";
+  private userLogin = "";
   private userData: GitUser | null = null;
   private openComputed = false;
 
   // methods
-  private async fetch () {
+  private async fetch() {
     axios({
       url: `https://api.github.com/users/${this.userLogin}`
     }).then(
       response => {
-        this.userData = response.data
+        this.userData = response.data;
       },
       erro => {
-        console.error(erro)
-        this.userData = gitUserMock
+        console.error(erro);
+        this.userData = gitUserMock;
       }
-    )
+    );
   }
 
   // emited from child component
-  private cleanDad () {
-    this.userData = null
-    this.userLogin = ''
+  private cleanDad() {
+    this.userData = null;
+    this.userLogin = "";
   }
 
-  private open (value: boolean) {
-    this.openComputed = value
+  private open(value: boolean) {
+    this.openComputed = value;
   }
 }
 </script>
 
 <style lang="stylus">
-.card {
-  border: 1px solid gray;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
 .btn {
   margin: 10px 0;
 }

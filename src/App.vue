@@ -5,20 +5,19 @@
         v-for="(route, index) in _allRoutes"
         :key="index"
         :to="route.path"
-        >{{ route.name }}</router-link
-      >
+      >{{ route.name }}</router-link>
     </div>
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import getRoutes from '@/mixins/getRoutes'
+import Vue from "vue";
+import getRoutes from "@/mixins/getRoutes";
 
 export default Vue.extend({
   mixins: [getRoutes]
-})
+});
 </script>
 
 <style>
@@ -42,5 +41,11 @@ export default Vue.extend({
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.card {
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin-top: 20px;
 }
 </style>
