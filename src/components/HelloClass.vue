@@ -18,12 +18,12 @@ const namespace = 'profile'
 
 @Component
 export default class Class extends Vue {
-        @State('profile') profile!: ProfileState;
-        @Action('fetchData', { namespace }) fetchData!: ActionMethod;
-        @Getter('userInfo', { namespace }) userInfo!: string;
+  @State('profile') profile!: ProfileState;
+  @Action('fetchData', { namespace }) fetchData!: ActionMethod;
+  @Getter('userInfo', { namespace }) userInfo!: string;
 
-        mounted () {
-          this.fetchData()
-        }
+  mounted () {
+    this.fetchData()
+  }
 }
 </script>

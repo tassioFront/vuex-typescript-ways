@@ -20,7 +20,7 @@ const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
 @Component({
   computed: {
     ...mapState({
-      profile: (state) => state
+      profile: state => state
     }),
     ...mapGetters({
       userInfo: 'userInfo'

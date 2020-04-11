@@ -4,7 +4,7 @@ import { ProfileState } from '@/store/profile/types'
 
 import { shallowMount, createLocalVue, Wrapper } from '@vue/test-utils'
 import HelloClass from '@/components/HelloClass.vue'
-import { gitUserMock } from './mock'
+import { gitUserMock } from '@/mocks/gitUser'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -46,6 +46,8 @@ describe('HelloClass component', () => {
   })
 
   it('getter userInfor is computing', () => {
-    expect(getters.userInfo(state, [], { version: '1' }, [])).toBe(`${state.user.name} from ${state.user.company}`)
+    expect(getters.userInfo(state, [], { version: '1' }, [])).toBe(
+      `${state.user.name} from ${state.user.company}`
+    )
   })
 })

@@ -8,11 +8,14 @@ export const actions: ActionTree<ProfileState, RootState> = {
   fetchData ({ commit }): void {
     axios({
       url: 'https://api.github.com/users/tassioFront'
-    }).then((response) => {
-      const payload: GitUser = response.data
-      commit('profileLoaded', payload)
-    }, (erro) => {
-      console.error(erro)
-    })
+    }).then(
+      response => {
+        const payload: GitUser = response.data
+        commit('profileLoaded', payload)
+      },
+      erro => {
+        console.error(erro)
+      }
+    )
   }
 }
