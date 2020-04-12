@@ -20,23 +20,4 @@ export default Vue.extend({
 });
 </script>
 
-<style src="./main.styl" lang="stylus">
-.title-button {
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.router {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.card {
-  border: 1px solid gray;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-</style>
+<style src="./main.styl" lang="stylus"></style>

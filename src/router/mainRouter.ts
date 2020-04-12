@@ -10,12 +10,12 @@ export const routes = [
     path: '/hello-vue',
     name: 'Hello Vue',
     component: () =>
-      import(/* webpackChunkName: "hello-vue" */ '../views/Dad.vue')
+      import(/* webpackChunkName: "hello-vue" */ '../views/Hello.vue')
   },
   {
-    path: '/data-binding',
-    name: 'Data Binding',
+    path: '/directives',
+    name: 'Directives',
     component: () =>
-      import(/* webpackChunkName: "hello-vue" */ '../views/DataBinding.vue')
+      import(/* webpackChunkName: "hello-vue" */ '../views/Directives.vue')
   }
 ]
