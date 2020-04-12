@@ -15,7 +15,7 @@ export default class UserDetail extends Vue {
   @Prop({ required: true, type: Object }) readonly userDetail!: User;
 
   //methods
-  private click() {
+  click() {
     console.group(this.userDetail.name.first);
     console.log(this.$vnode.key);
     console.log(this.userDetail);

@@ -17,6 +17,8 @@
           />
         </ul>
       </transition>
+
+      <TwoWay v-show="users.length" />
     </div>
   </div>
 </template>
@@ -26,21 +28,23 @@ import { Component, Vue } from "vue-property-decorator";
 import { usersData } from "@/mocks/users";
 import User from "@/models/User";
 
-import UserDetail from "@/components/data-binding/UserDetail.vue";
+import UserDetail from "@/components/directives/UserDetail.vue";
+import TwoWay from "@/components/directives/TwoWay.vue";
 
 @Component({
   components: {
-    UserDetail
+    UserDetail,
+    TwoWay
   }
 })
 export default class DataBinding extends Vue {
   // data
-  private title = "Directives ";
-  private msg = "message from v-text directive";
-  private users: User[] = [];
+  title = "Directives ";
+  msg = "message from v-text directive";
+  users: User[] = [];
 
   // methods
-  private showList() {
+  showList() {
     this.users = usersData;
   }
 }
@@ -54,6 +58,6 @@ export default class DataBinding extends Vue {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 2s;
+  transition: opacity 0.5s;
 }
 </style>

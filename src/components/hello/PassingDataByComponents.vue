@@ -1,16 +1,15 @@
 <template>
   <div>
-    <h4>Props N Data</h4>
+    <h3>Passing Data</h3>
     <p>Props: {{ userLogin }}</p>
     <div>
-      <button class="btn" @click="$emit('clean')">Limpar</button>
       <button class="btn" @click="openNext">Abrir</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit } from 'vue-property-decorator'
+import { Component, Prop, Vue, Emit } from "vue-property-decorator";
 
 @Component
 export default class PassingDataByComponents extends Vue {
@@ -19,8 +18,8 @@ export default class PassingDataByComponents extends Vue {
 
   // methods
   @Emit()
-  openNext () {
-    return true
+  openNext() {
+    return true;
   }
 }
 </script>

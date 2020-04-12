@@ -4,18 +4,20 @@
 
     <div class="title-button">
       <input type="text" v-model="userLogin" @keydown.enter="fetch()" />
+      <span v-if="userLogin" class="search">Buscar pelo usuário: {{ userLogin }}</span>
+
       <button class="btn" :disabled="!userLogin || false" @click="fetch()">Fetch User</button>
     </div>
 
     <div v-if="userData">
-      <PassingDataByComponents
-        class="card"
-        :userLogin="userLogin"
-        @clean="cleanDad()"
-        @open-next="open($event)"
-      />
+      <PassingDataByComponents class="card" :userLogin="userLogin" @open-next="open($event)" />
 
-      <ComputedLifeCycles v-show="openComputed" class="card" :userData="userData" />
+      <ComputedLifeCycles
+        v-if="openComputed"
+        class="card"
+        :userData="userData"
+        @clean="cleanDad()"
+      />
     </div>
 
     <div v-else>Nada por aqui</div>
@@ -26,8 +28,8 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-import PassingDataByComponents from "@/components/PassingDataByComponents.vue";
-import ComputedLifeCycles from "@/components/ComputedLifeCycles.vue";
+import PassingDataByComponents from "@/components/hello/PassingDataByComponents.vue";
+import ComputedLifeCycles from "@/components/hello/ComputedLifeCycles.vue";
 
 import axios from "axios";
 import GitUser from "@/models/IGitUser";
@@ -39,15 +41,15 @@ import { gitUserMock } from "@/mocks/gitUser";
     ComputedLifeCycles
   }
 })
-export default class Dad extends Vue {
+export default class Hello extends Vue {
   // data
-  private title = "GitHub User";
-  private userLogin = "";
-  private userData: GitUser | null = null;
-  private openComputed = false;
+  title = "GitHub User";
+  userLogin = "";
+  userData: GitUser | null = null;
+  openComputed = false;
 
   // methods
-  private async fetch() {
+  async fetch() {
     axios({
       url: `https://api.github.com/users/${this.userLogin}`
     }).then(
@@ -62,12 +64,12 @@ export default class Dad extends Vue {
   }
 
   // emited from child component
-  private cleanDad() {
+  cleanDad() {
     this.userData = null;
     this.userLogin = "";
   }
 
-  private open(value: boolean) {
+  open(value: boolean) {
     this.openComputed = value;
   }
 }
@@ -76,5 +78,11 @@ export default class Dad extends Vue {
 <style lang="stylus">
 .btn {
   margin: 10px 0;
+}
+
+.search {
+  font-size: 10px;
+  padding: 5px;
+  color: green;
 }
 </style>
