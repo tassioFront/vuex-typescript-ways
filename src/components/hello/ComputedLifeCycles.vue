@@ -12,8 +12,7 @@
 </template>
 
 <script lang="ts">
-/* eslint no-warning-comments: "error" */
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import GitUser from "@/models/IGitUser";
 
 @Component
@@ -38,38 +37,53 @@ export default class ComputedLifeCycles extends Vue {
   increment() {
     this.count++;
   }
+  consoleToCycle(cycle: string) {
+    console.log(
+      `%c ${cycle}`,
+      "font-family: Helvetica; color: green; font-size: 15px;"
+    );
+  }
+
+  @Watch("count")
+  onCountChange(newVal: number, oldVal: number) {
+    console.log("ComputedLifeCycles -> onCountChange -> val", newVal);
+    console.log("ComputedLifeCycles -> onCountChange -> oldVal", oldVal);
+  }
 
   // lifecycle
   beforeCreate() {
-    console.log("Child -> beforeCreated -> beforeCreated");
+    console.log(
+      "%c beforeCreate",
+      "font-family: Helvetica; color: green; font-size: 15px;"
+    );
   }
 
   created() {
-    console.log("Child -> created -> created");
+    this.consoleToCycle("created");
   }
 
   beforeMount() {
-    console.log("Child -> beforeMounted -> beforeMounted");
+    this.consoleToCycle("beforeMounted");
   }
 
   mounted() {
-    console.log("Child -> mounted -> mounted");
+    this.consoleToCycle("mounted");
   }
 
   beforeUpdate() {
-    console.log("Child -> beforeUpdate -> beforeUpdate");
+    this.consoleToCycle("beforeUpdate");
   }
 
   updated() {
-    console.log("Child -> update -> update");
+    this.consoleToCycle("update");
   }
 
   beforeDestroy() {
-    console.log("Child -> beforeDestroyed -> beforeDestroyed");
+    this.consoleToCycle("beforeDestroyed");
   }
 
   destroyed() {
-    console.log("Child -> destroyed -> destroyed");
+    this.consoleToCycle("destroyed");
   }
 }
 </script>
