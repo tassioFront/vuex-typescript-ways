@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h3>Computed</h3>
-    <p>{{ userInfo }}</p>
+    <h3>Life Cycles</h3>
 
     <div class="title-button">
       <button @click="increment()" class="btn">Somar</button>
@@ -12,23 +11,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import GitUser from "@/models/IGitUser";
 
 @Component
-export default class ComputedLifeCycles extends Vue {
-  // props
-  @Prop({ required: true, type: Object }) readonly userData!: GitUser;
-
+export default class LifeCycles extends Vue {
   // data
   count = 0;
 
   // computed
-  get userInfo(): string {
-    const name = this.userData?.name ?? "someone";
-    const company = this.userData?.company ?? "someplace";
-    return `${name} from ${company}`;
-  }
   get counter() {
     return this.count * 10;
   }
@@ -42,12 +33,6 @@ export default class ComputedLifeCycles extends Vue {
       `%c ${cycle}`,
       "font-family: Helvetica; color: green; font-size: 15px;"
     );
-  }
-
-  @Watch("count")
-  onCountChange(newVal: number, oldVal: number) {
-    console.log("ComputedLifeCycles -> onCountChange -> val", newVal);
-    console.log("ComputedLifeCycles -> onCountChange -> oldVal", oldVal);
   }
 
   // lifecycle
@@ -84,6 +69,13 @@ export default class ComputedLifeCycles extends Vue {
 
   destroyed() {
     this.consoleToCycle("destroyed");
+  }
+
+  // watch
+  @Watch("count")
+  onCountChange(newVal: number, oldVal: number) {
+    console.log("ComputedLifeCycles -> onCountChange -> val", newVal);
+    console.log("ComputedLifeCycles -> onCountChange -> oldVal", oldVal);
   }
 }
 </script>

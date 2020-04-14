@@ -9,13 +9,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { createNamespacedHelpers, ActionMethod } from 'vuex'
-import Component from 'vue-class-component'
-import { ProfileState } from '@/store/profile/types'
+import { Component, Vue } from "vue-property-decorator";
+import { createNamespacedHelpers, ActionMethod } from "vuex";
+import { ProfileState } from "@/store/profile/types";
 const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
-  'profile/'
-)
+  "profile/"
+);
 
 @Component({
   computed: {
@@ -23,12 +22,12 @@ const { mapState, mapGetters, mapActions } = createNamespacedHelpers(
       profile: state => state
     }),
     ...mapGetters({
-      userInfo: 'userInfo'
+      userInfo: "userInfo"
     })
   },
   methods: {
     ...mapActions({
-      fetchData: 'fetchData'
+      fetchData: "fetchData"
     })
   }
 })
@@ -37,8 +36,8 @@ export default class Normal extends Vue {
   public profile!: ProfileState;
   public fetchData!: ActionMethod;
 
-  mounted () {
-    this.fetchData()
+  mounted() {
+    this.fetchData();
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <h1>Data: {{ title }}</h1>
 
     <div class="title-button">
-      <input type="text" v-model="userLogin" @keydown.enter="fetch()" />
+      <input type="text" v-model.trim="userLogin" @keydown.enter="fetch()" />
       <span v-if="userLogin" class="search">Buscar pelo usuário: {{ userLogin }}</span>
 
       <button class="btn" :disabled="!userLogin || false" @click="fetch()">Fetch User</button>
@@ -12,12 +12,9 @@
     <div v-if="userData">
       <PassingDataByComponents class="card" :userLogin="userLogin" @open-next="open($event)" />
 
-      <ComputedLifeCycles
-        v-if="openComputed"
-        class="card"
-        :userData="userData"
-        @clean="cleanDad()"
-      />
+      <Computed v-if="openComputed" class="card" />
+
+      <LifeCycles v-if="openComputed" class="card" @clean="cleanDad()" />
     </div>
 
     <div v-else>Nada por aqui</div>
@@ -25,11 +22,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Vue } from "vue-property-decorator";
 
 import PassingDataByComponents from "@/components/hello/PassingDataByComponents.vue";
-import ComputedLifeCycles from "@/components/hello/ComputedLifeCycles.vue";
+import LifeCycles from "@/components/hello/LifeCycles.vue";
+import Computed from "@/components/hello/Computed.vue";
 
 import axios from "axios";
 import GitUser from "@/models/IGitUser";
@@ -38,7 +35,8 @@ import { gitUserMock } from "@/mocks/gitUser";
 @Component({
   components: {
     PassingDataByComponents,
-    ComputedLifeCycles
+    LifeCycles,
+    Computed
   }
 })
 export default class Hello extends Vue {
@@ -49,10 +47,9 @@ export default class Hello extends Vue {
   openComputed = false;
 
   // methods
-  async fetch() {
-    axios({
-      url: `https://api.github.com/users/${this.userLogin}`
-    }).then(
+  fetch() {
+    const url = `https://api.github.com/users/${this.userLogin}`;
+    axios({ url }).then(
       response => {
         this.userData = response.data;
       },
@@ -62,13 +59,11 @@ export default class Hello extends Vue {
       }
     );
   }
-
   // emited from child component
   cleanDad() {
     this.userData = null;
     this.userLogin = "";
   }
-
   open(value: boolean) {
     this.openComputed = value;
   }
