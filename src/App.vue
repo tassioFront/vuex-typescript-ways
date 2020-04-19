@@ -8,6 +8,7 @@
       >{{ route.name }}</router-link>
     </div>
     <router-view />
+    <router-view name="new" />
   </div>
 </template>
 

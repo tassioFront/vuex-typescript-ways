@@ -4,30 +4,33 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      vars: 'data'
+      vars: "data"
       // ...
-    }
+    };
   },
   computed: {
-    comp () {}
+    comp() {}
     // ...
   },
   methods: {
-    func () {}
+    func() {}
     // ...
   },
+  watch: {
+    vars() {}
+  },
   // lifecycles
-  beforeCreate () {},
-  created () {},
-  beforeMount () {},
-  mounted () {},
-  beforeUpdate () {},
-  updated () {},
-  beforeDestroy () {},
-  destroyed () {}
-}
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  beforeDestroy() {},
+  destroyed() {}
+};
 </script>
 
 <style scoped></style>

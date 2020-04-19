@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { RouteConfig } from 'vue-router'
-import { routes } from '@/router/mainRouter'
+import { routes } from '@/router/routes/main'
 
 let _allRoutes: RouteConfig[] = []
 
@@ -24,7 +24,7 @@ export class AllRoutes extends Vue {
 
 const getRoutes = {
   computed: {
-    _allRoutes () {
+    _allRoutes() {
       return _allRoutes
     }
   }
