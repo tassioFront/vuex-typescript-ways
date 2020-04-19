@@ -1,7 +1,7 @@
 
 # Vuex-typescript-Jest
 Diference between Normal Vuex import vs Vuex-class lib.
-I have maked some examples with Jest, Vuex and TypeScript.
+I have maked some examples with Jest/Computed/Watch/Prop, Vuex and TypeScript.
 
 ## Summary
 - [Description](#description)
