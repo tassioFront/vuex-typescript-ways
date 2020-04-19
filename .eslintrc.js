@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
-    '@vue/standard',
+    'eslint:recommended',
     '@vue/typescript/recommended'
   ],
   parserOptions: {
@@ -27,3 +27,9 @@ module.exports = {
     }
   ]
 }
+
+// 'plugin:vue/essential',
+// 'eslint:recommended',
+// '@vue/typescript/recommended',
+// '@vue/prettier',
+// '@vue/prettier/@typescript-eslint',

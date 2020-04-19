@@ -1,15 +1,24 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="router">
+      <router-link
+        v-for="(route, index) in _allRoutes"
+        :key="index"
+        :to="route.path"
+      >{{ route.name }}</router-link>
+    </div>
+    <router-view />
+    <router-view name="new" />
   </div>
 </template>
 
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script lang="ts">
+import Vue from "vue";
+import getRoutes from "@/mixins/getRoutes";
+
+export default Vue.extend({
+  mixins: [getRoutes]
+});
+</script>
+
+<style src="./main.styl" lang="stylus"></style>
