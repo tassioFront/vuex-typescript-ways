@@ -12,7 +12,6 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
-import GitUser from "@/models/IGitUser";
 
 @Component
 export default class LifeCycles extends Vue {
