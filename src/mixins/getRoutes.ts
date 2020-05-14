@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { RouteConfig } from 'vue-router'
-import { routes } from '@/router/routes/main'
+import { routes } from '@/router/routes'
 
 let _allRoutes: RouteConfig[] = []
 
