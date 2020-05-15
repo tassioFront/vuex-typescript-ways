@@ -2,18 +2,17 @@ import Vue from 'vue'
 import VueRouter, { Route } from 'vue-router'
 import { routes } from './routes'
 import store from '@/store'
-import { get } from '@/services/fakeUser'
-Vue.use(VueRouter)
+console.log("store", store)
 
-get('https://api.github.com/users/tassioFront').then(response => {
-  console.log("user", response) //it's call just on reload page
-})
+Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
+
+console.log("router", router.currentRoute)
 
 router.beforeEach(async (to: Route, _, next) => {
   if (to.matched.some(record => record.meta.authenticate)) {

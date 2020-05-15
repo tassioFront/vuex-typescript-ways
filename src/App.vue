@@ -17,7 +17,13 @@ import Vue from "vue";
 import getRoutes from "@/mixins/getRoutes";
 
 export default Vue.extend({
-  mixins: [getRoutes]
+  mixins: [getRoutes],
+  mounted() {
+    console.log(
+      "%c started render components by App.vue",
+      "font-family: Helvetica; color: pink; text-transform: uppercase"
+    );
+  }
 });
 </script>
 

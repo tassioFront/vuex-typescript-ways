@@ -1,14 +1,10 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import storage from './localStorage.service'
 import Qs from 'qs'
 
-type configuration = {
-  paramsSerializer: (params: {} | [] | string) => string,
-  baseURL: string
-}
+const token = storage.get<string>('fakeToken')
 
-const token: string = storage.get(process.env.TOKEN) ?? ''
-const config: configuration = {
+const config: AxiosRequestConfig = {
   paramsSerializer: (params) => Qs.stringify(params, { arrayFormat: 'repeat' }),
   baseURL: process.env.BASE_URL
 }

@@ -5,10 +5,17 @@ const throwMessageError = (message: string) => {
 }
 
 const get = async (endpoint: string) => {
-  const message = 'Must have endpoint and data args at sendFile request'
+  const message = 'Must have endpoint args at get request'
   if (!endpoint) throwMessageError(message)
 
   return await service.noAuth.get(endpoint)
 }
 
-export { get }
+type userCredentions = { user: string; password: string }
+const login = async (endpoint: string, credentions: userCredentions) => {
+  const message = 'Must have endpoint and credentions args at login request'
+  if (!endpoint) throwMessageError(message)
+
+  return await service.noAuth.post(endpoint, credentions)
+}
+export { get, login }

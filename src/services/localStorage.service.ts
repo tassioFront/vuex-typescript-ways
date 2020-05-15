@@ -1,38 +1,46 @@
-export interface StoragePlugin {
-  set: (key: string, data: any) => void;
-  get: (key: string) => any;
-  remove: (key: string) => void;
-  clear: () => void;
-}
-const storage: StoragePlugin = {
-  set: (key, data) => {
-    if (typeof data === 'string') {
-      localStorage.setItem(key, data);
-    } else {
-      localStorage.setItem(key, JSON.stringify(data));
+// export interface StoragePlugin {
+//   set: (key: string, data: string) => void;
+//   get<T>(): (key: string) => T | null;
+//   remove: (key: string) => void;
+//   clear: () => void;
+// }
+
+// function get<T>(key: string): T | null {
+//   const rawData: string | null = localStorage.getItem(key);
+
+//   if (!rawData) {
+//     return null
+//   }
+//   const te: T | null = JSON.parse(rawData)
+//   return te
+// }
+
+
+const storage = {
+  set: <T>(key: string, data: T): void => {
+    if (!data) return
+
+    const dataHandled = typeof data !== 'string' ? JSON.stringify(data) : data
+    localStorage.setItem(key, dataHandled);
+  },
+
+  get: <T>(key: string): T | null => {
+    const rawData: string | null = localStorage.getItem(key);
+
+    if (!rawData) {
+      return null
     }
+
+    return typeof rawData !== 'string' ? JSON.parse(rawData) : rawData
   },
 
-  get: (key) => {
-    const rawData: any = localStorage.getItem(key);
-    let data = '';
+  // remove: (key) => {
+  //   localStorage.removeItem(key);
+  // },
 
-    try {
-      data = JSON.parse(rawData);
-    } catch (_) {
-      data = rawData;
-    }
-
-    return data;
-  },
-
-  remove: (key) => {
-    localStorage.removeItem(key);
-  },
-
-  clear: () => {
-    localStorage.clear();
-  },
+  // clear: () => {
+  //   localStorage.clear();
+  // },
 };
 
 export default storage;

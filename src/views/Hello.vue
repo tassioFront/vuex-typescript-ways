@@ -31,6 +31,7 @@ import Computed from "@/components/hello/Computed.vue";
 import axios from "axios";
 import GitUser from "@/models/IGitUser";
 import { gitUserMock } from "@/mocks/gitUser";
+import Months from "@/enums/month";
 
 @Component({
   components: {
@@ -45,6 +46,7 @@ export default class Hello extends Vue {
   userLogin = "";
   userData: GitUser | null = null;
   openComputed = false;
+  jan: string | null = null;
 
   // methods
   fetch() {
@@ -66,6 +68,10 @@ export default class Hello extends Vue {
   }
   open(value: boolean) {
     this.openComputed = value;
+  }
+  created() {
+    const month: Months = Months.Janeiro;
+    this.jan = Months[0];
   }
 }
 </script>
