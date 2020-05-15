@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter, { Route } from 'vue-router'
 import { routes } from './routes'
 import store from '@/store'
-console.log("store", store)
 
 Vue.use(VueRouter)
 
@@ -14,19 +13,19 @@ const router = new VueRouter({
 
 console.log("router", router.currentRoute)
 
-router.beforeEach(async (to: Route, _, next) => {
-  if (to.matched.some(record => record.meta.authenticate)) {
-    // if (!isAuthenticated(to) && window.outerWidth > 800)
-    //   return next({ name: 'Login' });
-  }
+router.beforeEach(async (to: Route, from: Route, next) => {
+  const isAuth = !!store.getters['stateManagement/userInfo'].name
 
-  // if (
-  //   to.matched.some(
-  //     record => record.meta.breadcrumb && to.meta.breadcrumb.length,
-  //   )
-  // ) {
-  //   store.commit(NAMESPACE + MUT_SET_BREADCRUMB, to.meta.breadcrumb);
-  // }
+  console.log(
+    `%c reload - data from store(beforeEach)`,
+    "font-family: Helvetica; color: violet; font-size: 15px;",
+    isAuth
+  );
+
+  const needAndNotHasPermission = isAuth && to.matched.some(record => record.meta.authenticate)
+  if (needAndNotHasPermission) {
+    return next({ path: '/state-management' });
+  }
 
   return next();
 });

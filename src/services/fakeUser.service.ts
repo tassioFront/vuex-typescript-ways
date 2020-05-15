@@ -8,7 +8,15 @@ const get = async (endpoint: string) => {
   const message = 'Must have endpoint args at get request'
   if (!endpoint) throwMessageError(message)
 
-  return await service.noAuth.get(endpoint)
+  // return await service.noAuth.get(endpoint)
+  return Promise.resolve({
+    data: {
+      name: 'Tássio',
+      company: 'JSM',
+      login: 'tassioFront',
+      id: 1111,
+    }
+  })
 }
 
 type userCredentions = { user: string; password: string }

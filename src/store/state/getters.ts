@@ -1,12 +1,9 @@
 import { GetterTree } from 'vuex'
-import { ProfileState } from './types'
 import { RootState } from '../types'
+import GitUser from '@/models/IGitUser'
 
-export const getters: GetterTree<ProfileState, RootState> = {
-  userInfo(state): string {
-    const { user } = state
-    const name = (user && user.name) || 'someone'
-    const company = (user && user.company) || 'someplace'
-    return `${name} from ${company}`
+export const getters: GetterTree<GitUser, RootState> = {
+  userInfo(state): GitUser {
+    return state
   }
 }

@@ -5,10 +5,8 @@ const New = () => import(/* webpackChunkName: "user" */ "@/components/user/butto
 export default
   {
     path: '/user',
-    name: 'User',
     components: {
       default: User,
-      // all: All,
       new: New
     },
     children: [
@@ -28,7 +26,7 @@ export default
       },
       {
         path: ':id',
-        name: 'Edit',
+        name: 'EditOne',
         component: () => import(/* webpackChunkName: "user" */ "@/components/user/Info.vue"),
         props: true,
       },

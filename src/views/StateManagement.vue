@@ -10,7 +10,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { MutationMethod } from "vuex";
 import { Mutation } from "vuex-class";
 
-import { get } from "@/services/fakeUser";
+import { get } from "@/services/fakeUser.service";
 import storage from "@/services/localStorage.service";
 const namespace = "stateManagement";
 
