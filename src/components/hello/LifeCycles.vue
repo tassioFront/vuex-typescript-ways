@@ -28,10 +28,7 @@ export default class LifeCycles extends Vue {
     this.count++;
   }
   consoleToCycle(cycle: string) {
-    console.log(
-      `%c ${cycle}`,
-      "font-family: Helvetica; color: green; font-size: 15px;"
-    );
+    this.$data.consoleHelper(cycle, "color: green;");
   }
 
   // lifecycle

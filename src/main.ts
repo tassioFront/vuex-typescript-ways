@@ -5,8 +5,13 @@ import router from './router'
 import store from './store'
 import { get } from '@/services/fakeUser.service'
 import storage from '@/services/localStorage.service'
+import * as HelperGlobal from '@/mixins/consoleLog'
 
 Vue.config.productionTip = false
+
+Vue.mixin(HelperGlobal.ConsoleLog)
+
+const yellow = "color: yellow"
 
 const token = storage.get<string>('fakeToken')
 
@@ -15,16 +20,11 @@ const initApp = async () => {
   if (token) {
     try {
       const response = await get('https://api.github.com/users/tassioFront')
-      console.log("initApp -> response", response)
-      console.log(
-        `%c reload - request userInfo- it's call just on reload page`,
-        "font-family: Helvetica; color: yellow; font-size: 15px;"
-      );
+      HelperGlobal.default("initApp", yellow, response);
+      HelperGlobal.default("reload - request userInfo- it's call just on reload page", yellow);
+
       if (response?.data?.id) {
-        console.log(
-          `%c reload - commit userData`,
-          "font-family: Helvetica; color: yellow; font-size: 15px;"
-        );
+        HelperGlobal.default("reload - commit Data", yellow);
         store.commit('stateManagement/' + 'setUser', response.data);
       }
 

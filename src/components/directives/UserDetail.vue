@@ -17,8 +17,8 @@ export default class UserDetail extends Vue {
   //methods
   click() {
     console.group(this.userDetail.name.first);
-    console.log(this.$vnode.key);
-    console.log(this.userDetail);
+    this.$data.consoleHelper("", "", this.$vnode.key);
+    this.$data.consoleHelper("", "", this.userDetail);
     console.groupEnd();
   }
 }

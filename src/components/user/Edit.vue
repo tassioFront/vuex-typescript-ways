@@ -11,10 +11,6 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 @Component
 export default class Edit extends Vue {
   @Prop({ type: String }) readonly id!: string;
-
-  created() {
-    console.log(this.$route);
-  }
 }
 </script>
 

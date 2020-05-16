@@ -19,9 +19,9 @@ import getRoutes from "@/mixins/getRoutes";
 export default Vue.extend({
   mixins: [getRoutes],
   beforeMount() {
-    console.log(
-      "%c started render components by App.vue",
-      "font-family: Helvetica; color: pink; text-transform: uppercase"
+    this.$data.consoleHelper(
+      "started render components by App.vue",
+      "color: pink"
     );
   }
 });

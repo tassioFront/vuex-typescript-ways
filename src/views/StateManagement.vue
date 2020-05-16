@@ -18,18 +18,14 @@ const namespace = "stateManagement";
 export default class StateManagement extends Vue {
   @Mutation("setUser", { namespace }) login!: MutationMethod;
   created() {
-    console.log(
-      "%c stateManagement",
-      "font-family: Helvetica; color: green; font-size: 15px;"
-    );
+    this.$data.consoleHelper("stateManagement", "color: green");
   }
   setUser() {
     get("https://api.github.com/users/tassioFront").then(response => {
       storage.set<string>("fakeToken", "fakeValueToken");
-      console.log(
-        "%c login",
-        "font-family: Helvetica; color: green; font-size: 15px;"
-      );
+
+      this.$data.consoleHelper("login", "color: green");
+
       this.login(response.data);
     });
   }
