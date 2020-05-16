@@ -17,7 +17,7 @@ router.beforeEach(async (to: Route, from: Route, next) => {
   const isAuth = !!store.getters['stateManagement/userInfo'].name
 
   console.log(
-    `%c reload - data from store(beforeEach)`,
+    `%c reload and on change route - data from store(beforeEach)`,
     "font-family: Helvetica; color: violet; font-size: 15px;",
     isAuth
   );
