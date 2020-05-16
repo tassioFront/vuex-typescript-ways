@@ -25,7 +25,7 @@ export default class StateManagement extends Vue {
   }
   setUser() {
     get("https://api.github.com/users/tassioFront").then(response => {
-      // storage.set<string>("fakeToken", "fakeValueToken");
+      storage.set<string>("fakeToken", "fakeValueToken");
       console.log(
         "%c login",
         "font-family: Helvetica; color: green; font-size: 15px;"
