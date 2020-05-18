@@ -12,11 +12,12 @@ import { Mutation } from "vuex-class";
 
 import { get } from "@/services/fakeUser.service";
 import storage from "@/services/localStorage.service";
+import GitUser from "../models/IGitUser";
 const namespace = "stateManagement";
 
 @Component
 export default class StateManagement extends Vue {
-  @Mutation("setUser", { namespace }) login!: MutationMethod;
+  @Mutation("setUser", { namespace }) login!: (user: GitUser) => void;
   created() {
     this.$data.consoleHelper("stateManagement", "color: green");
   }

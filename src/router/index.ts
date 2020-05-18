@@ -13,7 +13,6 @@ const router = new VueRouter({
   routes
 })
 
-
 router.beforeEach(async (to: Route, from: Route, next) => {
   const isAuth = !!store.getters['stateManagement/userInfo'].name
 
