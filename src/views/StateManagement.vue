@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { MutationMethod } from "vuex";
 import { Mutation } from "vuex-class";
 
 import { get } from "@/services/fakeUser.service";
