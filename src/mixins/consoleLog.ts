@@ -14,4 +14,4 @@ export class ConsoleLog extends Vue {
   consoleHelper = consoleHelper
 }
 
-export default consoleHelper
+export { consoleHelper }
