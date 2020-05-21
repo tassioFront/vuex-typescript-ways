@@ -15,6 +15,7 @@
     "@types/qs": "^6.9.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "jsm-components": "^1.0.5145",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
