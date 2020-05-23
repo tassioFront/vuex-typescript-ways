@@ -22,4 +22,5 @@ jobs:
       working-directory: .
     - run: |
         yarn build --if-present
+        yarn build
         yarn test:unit
