@@ -39,7 +39,7 @@ beforeEach(() => {
 
 describe('HelloClass', () => {
   it('renders components', () => {
-    expect(wrapper.isVisible())
+    expect(wrapper.isVisible()).not.toBe(true)
   })
   it('call fetchData', () => {
     expect(actions.fetchData).toHaveBeenCalled()
