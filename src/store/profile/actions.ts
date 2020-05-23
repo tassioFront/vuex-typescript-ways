@@ -13,7 +13,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
         const payload: GitUser = response.data
         commit('profileLoaded', payload)
       },
-      erro => {
+      () => {
         // console.error(erro)
       }
     )

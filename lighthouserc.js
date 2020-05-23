@@ -3,13 +3,12 @@ module.exports = {
     upload: {
       target: 'temporary-public-storage',
     },
-    // collect: {
-    //   url: [
-    //     "http://localhost:3000/",
-    //     "http://localhost:3000/hello-vue"
-    //   ],
-    //   numberOfRuns: 3
-    // },
+    collect: {
+      url: [
+        "http://localhost:49168/",
+      ],
+      numberOfRuns: 3
+    },
     assert: {
       assertions: {
         "categories:performance": ["error", { "minScore": 0.8 }],
