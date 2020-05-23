@@ -1,2 +1,6 @@
 # Set addAssignees to 'author' to set the PR creator as the assignee.
-addAssignees: author
+on:  
+  pull_request:
+    branches: [ master ]
+  
+  addAssignees: author
