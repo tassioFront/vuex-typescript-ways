@@ -22,7 +22,7 @@ jobs:
       working-directory: .
     - run: rm -rf node_modules/
     - run: yarn install
-    - run: yarn format:js
+    - run: yarn lint
     - run: yarn test:unit
 
         
