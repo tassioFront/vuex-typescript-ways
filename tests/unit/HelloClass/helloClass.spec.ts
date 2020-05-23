@@ -3,7 +3,7 @@ import { getters } from '@/store/profile/getters'
 import { ProfileState } from '@/store/profile/types'
 
 import { shallowMount, createLocalVue, Wrapper } from '@vue/test-utils'
-import HelloClass from '@/components/HelloClass.vue'
+import HelloClass from '@/components/Class.vue'
 import { gitUserMock } from '@/mocks/gitUser'
 
 const localVue = createLocalVue()
