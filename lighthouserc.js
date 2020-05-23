@@ -3,6 +3,9 @@ module.exports = {
     upload: {
       target: 'temporary-public-storage',
     },
+    collect: {
+      isSinglePageApplication: true
+    },
     assert: {
       assertions: {
         // "categories:performance": ["error", { "minScore": 0.8 }],
