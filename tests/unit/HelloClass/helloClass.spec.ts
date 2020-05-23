@@ -37,7 +37,7 @@ beforeEach(() => {
   })
 })
 
-describe('HelloClass component', () => {
+describe('HelloClass', () => {
   it('renders components', () => {
     expect(wrapper.isVisible())
   })
