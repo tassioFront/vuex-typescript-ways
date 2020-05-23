@@ -19,5 +19,5 @@ jobs:
           yarn build
       - name: run Lighthouse CI
         run: |
-          yarn global add @lhci/cli@0.4.x
+          npm install -g @lhci/cli@0.4.x
           lhci autorun
