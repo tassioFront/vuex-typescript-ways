@@ -1,6 +1,11 @@
 # Set addAssignees to 'author' to set the PR creator as the assignee.
 name: 'Auto Assign'
-on: pull_request
+on: 
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  addAssignees: author
+  add-reviews:
+    runs-on: macos-latest
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.1.0
