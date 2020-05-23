@@ -3,15 +3,15 @@ module.exports = {
     upload: {
       target: 'temporary-public-storage',
     },
-    "collect": {
-      "url": [
+    collect: {
+      url: [
         "http://localhost:3000/",
         "http://localhost:3000/hello-vue"
       ],
-      "numberOfRuns": 3
+      numberOfRuns: 3
     },
-    "assert": {
-      "assertions": {
+    assert: {
+      assertions: {
         "categories:performance": ["error", { "minScore": 0.8 }],
         "first-contentful-paint": ["error", { "maxNumericValue": 2000 }],
         "interactive": ["error", { "maxNumericValue": 5200 }],
@@ -19,5 +19,6 @@ module.exports = {
         "resource-summary:script:size": ["error", { "maxNumericValue": 170000 }],
         "resource-summary:total:size": ["error", { "maxNumericValue": 300000 }]
       }
-    },
-  };
+    }
+  }
+}
