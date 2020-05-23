@@ -9,7 +9,8 @@
     "build": "vue-cli-service build --target lib --inline-vue",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "format:js": "prettier-eslint --write $PWD/'**/*.{js,ts,jsx,tsx,vue}' $PWD/'*.{js,ts}' && eslint . --ext js,ts,jsx,tsx,vue --fix"
   },
   "dependencies": {
     "@types/qs": "^6.9.2",
