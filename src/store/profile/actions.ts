@@ -5,7 +5,7 @@ import { RootState } from '../types'
 import GitUser from '@/models/IGitUser'
 
 export const actions: ActionTree<ProfileState, RootState> = {
-  fetchData ({ commit }): void {
+  fetchData({ commit }): void {
     axios({
       url: 'https://api.github.com/users/tassioFront'
     }).then(
@@ -14,7 +14,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
         commit('profileLoaded', payload)
       },
       erro => {
-        console.error(erro)
+        // console.error(erro)
       }
     )
   }

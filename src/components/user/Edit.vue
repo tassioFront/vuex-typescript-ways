@@ -13,7 +13,7 @@ export default class Edit extends Vue {
   @Prop({ type: String }) readonly id!: string;
 
   created() {
-    console.log(this.$route);
+    // console.log(this.$route);
   }
 }
 </script>

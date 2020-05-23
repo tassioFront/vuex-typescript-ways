@@ -16,10 +16,10 @@ export default class UserDetail extends Vue {
 
   //methods
   click() {
-    console.group(this.userDetail.name.first);
-    console.log(this.$vnode.key);
-    console.log(this.userDetail);
-    console.groupEnd();
+    // console.group(this.userDetail.name.first);
+    // console.log(this.$vnode.key);
+    // console.log(this.userDetail);
+    // console.groupEnd();
   }
 }
 </script>

@@ -53,8 +53,8 @@ export default class Hello extends Vue {
       response => {
         this.userData = response.data;
       },
-      erro => {
-        console.error(erro);
+      () => {
+        // console.error(erro);
         this.userData = gitUserMock;
       }
     );
