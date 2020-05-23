@@ -22,6 +22,6 @@ jobs:
       working-directory: .
     - run: yarn install
     - run: yarn test:unit
-    - run: |
-        yarn build --if-present
-        yarn build
+    - run: yarn build
+
+        
