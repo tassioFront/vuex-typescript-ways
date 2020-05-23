@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --fix",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --inline-vue",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
@@ -22,7 +22,8 @@
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.5",
     "vuex": "^3.1.2",
-    "vuex-class": "^0.3.2"
+    "vuex-class": "^0.3.2",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.9.6",
