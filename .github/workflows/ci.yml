@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
+          repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
       - name: yarn install, build
         run: |
           yarn install
