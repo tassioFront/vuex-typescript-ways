@@ -17,7 +17,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn global add @vue/cli@latest
+    - run: npm ci
+    - run: yarn global add @vue/cli @vue/cli-service-global
       working-directory: .
     - run: |
         yarn build --if-present
