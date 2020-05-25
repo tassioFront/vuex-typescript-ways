@@ -28,14 +28,9 @@ jobs:
           yarn install
     - run: yarn test:unit
     - run: yarn lint
+    - name: run Lighthouse CI
+      run: |
+          npm install -g @lhci/cli@0.4.x
+          lhci autorun
     env:
       CI: true
-
-  lhci:
-    name: Lighthouse
-
-    steps:
-      - name: run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.4.x
-          lhci autorun       
