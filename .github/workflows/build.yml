@@ -26,8 +26,8 @@ jobs:
       run: |
         rm -rf node_modules/
         yarn install
-    - run: yarn test:unit
-    - run: yarn lint
+        yarn test:unit
+        yarn lint
     - name: run Lighthouse CI
       env:
         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
