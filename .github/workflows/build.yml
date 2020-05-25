@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
     - run: yarn global add @vue/cli @vue/cli-service-global
       working-directory: .
     - name: remove node_modules and install
@@ -30,4 +31,11 @@ jobs:
     env:
       CI: true
 
-        
+  lhci:
+    name: Lighthouse
+
+    steps:
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.4.x
+          lhci autorun       
