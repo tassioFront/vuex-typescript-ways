@@ -26,6 +26,8 @@ jobs:
       run: |
         rm -rf node_modules/
         yarn install
+    - name: Test and Lint
+      run: |
         yarn test:unit
         yarn lint
     - name: run Lighthouse CI
@@ -35,5 +37,3 @@ jobs:
         yarn build
         npm install -g @lhci/cli@0.4.x
         lhci autorun
-    env:
-      CI: true
