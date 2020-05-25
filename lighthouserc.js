@@ -4,7 +4,9 @@ module.exports = {
       target: 'temporary-public-storage',
     },
     collect: {
-      isSinglePageApplication: true
+      isSinglePageApplication: true,
+      staticDistDir: "./dist",
+      url: ["http://localhost/hello-vue"]
     },
     assert: {
       assertions: {
