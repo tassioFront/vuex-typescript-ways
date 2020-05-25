@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   build:
-    name: Lighthouse
+    name: Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,14 +16,16 @@ jobs:
           repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
       - run: yarn install
       - run: yarn build
-      - name: run Lighthouse CI
+      - name: Run Lighthouse CI
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm install -g @lhci/cli@0.4.x
           lhci autorun
-      - run: yarn global add @vue/cli @vue/cli-service-global
-      - run: yarn test:unit
+      - name: Run test
+        run: |
+          yarn global add @vue/cli @vue/cli-service-global
+          yarn test:unit
       - run: yarn lint
       # - name: Save results on GitHub to download
       #   uses: actions/upload-artifact@v1
