@@ -1,0 +1,39 @@
+name: Build
+
+on:  
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
+    - run: yarn global add @vue/cli @vue/cli-service-global
+      working-directory: .
+    - name: remove node_modules and install
+      run: |
+        rm -rf node_modules/
+        yarn install
+    - name: Test and Lint
+      run: |
+        yarn test:unit
+        yarn lint
+    - name: run Lighthouse CI
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      run: |
+        yarn build
+        npm install -g @lhci/cli@0.4.x
+        lhci autorun
