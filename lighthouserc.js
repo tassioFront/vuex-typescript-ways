@@ -6,7 +6,8 @@ module.exports = {
     collect: {
       isSinglePageApplication: true,
       staticDistDir: "./dist",
-      url: ["http://localhost/hello-vue"]
+      url: ["http://localhost",
+        "http://localhost/hello-vue"]
     },
     assert: {
       assertions: {
