@@ -24,6 +24,11 @@ jobs:
         run: |
           npm install -g @lhci/cli@0.4.x
           lhci autorun
+        - name: Lint and Test
+        run: |
+          yarn global add @vue/cli @vue/cli-service-global
+          yarn test:unit
+          yarn lint
       # - name: Save results on GitHub to download
       #   uses: actions/upload-artifact@v1
       #   with:
