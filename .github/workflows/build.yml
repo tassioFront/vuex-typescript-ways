@@ -32,6 +32,7 @@ jobs:
       env:
         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       run: |
+        yarn build
         npm install -g @lhci/cli@0.4.x
         lhci autorun
     env:
