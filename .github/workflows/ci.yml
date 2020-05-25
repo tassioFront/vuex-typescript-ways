@@ -1,31 +1,31 @@
-name: CI
-on: [push]
-jobs:
-  lhci:
-    name: Lighthouse
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-          repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
-      - name: yarn install, build
-        run: |
-          yarn install
-          yarn build
-      - name: run Lighthouse CI
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        run: |
-          npm install -g @lhci/cli@0.4.x
-          lhci autorun
-      # - name: Save results on GitHub to download
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: lighthouse-results
-      #     path: '.lighthouseci'
+# name: CI
+# on: [push]
+# jobs:
+#   lhci:
+#     name: Lighthouse
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [10.x]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js 10.x
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 10.x
+#           repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
+#       - name: yarn install, build
+#         run: |
+#           yarn install
+#           yarn build
+#       - name: run Lighthouse CI
+#         env:
+#           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+#         run: |
+#           npm install -g @lhci/cli@0.4.x
+#           lhci autorun
+#       # - name: Save results on GitHub to download
+#       #   uses: actions/upload-artifact@v1
+#       #   with:
+#       #     name: lighthouse-results
+#       #     path: '.lighthouseci'

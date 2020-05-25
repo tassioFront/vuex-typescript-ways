@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [13.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,13 +24,15 @@ jobs:
       working-directory: .
     - name: remove node_modules and install
       run: |
-          rm -rf node_modules/
-          yarn install
+        rm -rf node_modules/
+        yarn install
     - run: yarn test:unit
     - run: yarn lint
     - name: run Lighthouse CI
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       run: |
-          npm install -g @lhci/cli@0.4.x
-          lhci autorun
+        npm install -g @lhci/cli@0.4.x
+        lhci autorun
     env:
       CI: true
