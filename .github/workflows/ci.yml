@@ -1,7 +1,7 @@
 name: CI
 on: [push]
 jobs:
-  lhci:
+  build:
     name: Lighthouse
     runs-on: ubuntu-latest
     strategy:
@@ -9,26 +9,22 @@ jobs:
         node-version: [10.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 10.x
+      - name: Using Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: ${{ matrix.node-version }}
           repo-token: "${{ secrets.LHCI_GITHUB_APP_TOKEN }}"
-      - name: yarn install, build
-        run: |
-          yarn install
-          yarn build
+      - run: yarn install
+      - run: yarn build
       - name: run Lighthouse CI
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm install -g @lhci/cli@0.4.x
           lhci autorun
-      - name: Lint and Test
-        run: |
-          yarn global add @vue/cli @vue/cli-service-global
-          yarn test:unit
-          yarn lint
+      - run: yarn global add @vue/cli @vue/cli-service-global
+      - run: yarn test:unit
+      - run: yarn lint
       # - name: Save results on GitHub to download
       #   uses: actions/upload-artifact@v1
       #   with:
