@@ -9,27 +9,27 @@ export default {
       vars: "data"
       // ...
     };
-  },
-  computed: {
-    comp() {}
-    // ...
-  },
-  methods: {
-    func() {}
-    // ...
-  },
-  watch: {
-    vars() {}
-  },
-  // lifecycles
-  beforeCreate() {},
-  created() {},
-  beforeMount() {},
-  mounted() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {}
+  }
+  // computed: {
+  //   comp() {}
+  //   // ...
+  // },
+  // methods: {
+  //   func() {}
+  //   // ...
+  // },
+  // watch: {
+  //   vars() {}
+  // },
+  // // lifecycles
+  // beforeCreate() {},
+  // created() {},
+  // beforeMount() {},
+  // mounted() {},
+  // beforeUpdate() {},
+  // updated() {},
+  // beforeDestroy() {},
+  // destroyed() {}
 };
 </script>
 

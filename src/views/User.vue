@@ -11,8 +11,8 @@ import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class User extends Vue {
   created() {
-    console.log(this.$route);
-    console.log(this.$router);
+    // console.log(this.$route);
+    // console.log(this.$router);
   }
 
   back() {
